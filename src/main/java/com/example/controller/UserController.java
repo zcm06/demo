@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -17,7 +18,7 @@ public class UserController {
 
     @ResponseBody
     @RequestMapping("/getUserList")
-    public String getUserList(){
+    public String getUserList(HttpServletRequest request){
         List<User> list = new ArrayList<User>();
         for(int i=0;i<10;i++){
             User user = new User();

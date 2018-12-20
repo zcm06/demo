@@ -14,10 +14,11 @@
         var table = layui.table;
         table.render({
             url: '/userController/getUserList',
-            elem: '#demo' //指定原始表格元素选择器（推荐id选择器）
-            ,height: 315 //容器高度
+            elem: '#demo'
+            ,page:true
+            ,limit:10
             ,cols: [[
-                {field: 'userName',title: '用户名'} //其它参数在此省略
+                {field: 'userName',title: '用户名'}
                 ,{field: 'password',title: '密码'}
             ] ]//设置表头
 
