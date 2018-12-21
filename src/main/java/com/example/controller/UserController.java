@@ -1,5 +1,6 @@
 package com.example.controller;
 import com.alibaba.fastjson.JSON;
+import com.example.entity.DataResult;
 import com.example.entity.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,16 +23,11 @@ public class UserController {
         List<User> list = new ArrayList<User>();
         for(int i=0;i<10;i++){
             User user = new User();
-            user.setUserName("name"+i);
+            user.setUserName("name"+i+1);
             user.setPassword("password"+i);
             list.add(user);
         }
-        Map<String,Object> map = new HashMap<>();
-        map.put("data",list);
-        map.put("code",0);
-        map.put("msg","获取成功！");
-        map.put("count",list.size());
-        String listStr = JSON.toJSONString(map);
-        return listStr;
+        DataResult result = new DataResult();
+        return result.dataToResult(list);
     }
 }
